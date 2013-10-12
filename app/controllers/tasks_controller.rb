@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+
 	def new
 		@task = Task.new
 	end
@@ -23,6 +24,8 @@ class TasksController < ApplicationController
 			render 'new'
 		end
 	end
+
+	
 	def destroy
 		@task = Task.find(params[:id])
 		@task.delete

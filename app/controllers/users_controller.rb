@@ -34,10 +34,15 @@ class UsersController < ApplicationController
     end
   end
 
-
   
-
   private
+
+    def sortTasksbyPriority
+        @user = User.find(params[:id])
+        @user.tasks.order("interest DESC").all
+        @user.save
+        return user.tasks
+    end
 
     def signed_in_user
       redirect_to signin_url, notice: "Please sign in." unless signed_in?
