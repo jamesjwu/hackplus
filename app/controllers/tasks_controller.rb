@@ -7,6 +7,7 @@ class TasksController < ApplicationController
 	def show
 		@task = Task.find(params[:id])
 	end
+
 	def create
 
 		@task = Task.new(params[:task])
@@ -24,11 +25,22 @@ class TasksController < ApplicationController
 			render 'new'
 		end
 	end
+<<<<<<< HEAD
 
 	
+=======
+	
+
+>>>>>>> c0c616c67662edcc31e06a47e5924453a9531962
 	def destroy
 		@task = Task.find(params[:id])
 		@task.delete
+		redirect_to root_url
+	end
+
+	def complete
+		@task = Task.find(params[:id])
+		@task.update_attribute(:completed, true)
 		redirect_to root_url
 	end
 end
